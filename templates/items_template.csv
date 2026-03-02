@@ -1,0 +1,11 @@
+code,description,unit_of_measure,unit_price,category
+BOLT-M6,M6 Hex Bolt 50mm,EA,0.25,Fasteners
+BOLT-M8,M8 Hex Bolt 60mm,EA,0.45,Fasteners
+NUT-M6,M6 Hex Nut,EA,0.10,Fasteners
+WASHER-M6,M6 Flat Washer,EA,0.08,Fasteners
+VALVE-BALL-1IN,Ball Valve 1 inch,EA,45.00,Plumbing
+PIPE-PVC-1IN,PVC Pipe 1 inch x 10ft,EA,12.50,Piping
+ELBOW-PVC-1IN,PVC Elbow 1 inch 90 degree,EA,2.75,Piping
+CABLE-ELEC-2.5,Electrical Cable 2.5mm Twin & Earth per metre,M,3.80,Electrical
+GLOVE-NITRILE-M,Nitrile Gloves Medium Box of 100,BOX,18.99,Safety
+PAPER-A4-80GSM,A4 Copy Paper 80gsm Ream 500 sheets,EA,6.50,Office Supplies

@@ -1,0 +1,15 @@
+code,description,aliases
+EA,Each,each;piece;unit;no;nos;nr;pce;pc
+BOX,Box,boxes;bx
+CASE,Case,cases;cs
+KG,Kilogram,kilograms;kilogramme;kg;kgs
+LB,Pound,pounds;lbs;lb
+M,Metre,metres;meter;meters;mtr;mtrs
+FT,Foot,feet;foot;ft
+L,Litre,litres;liter;liters;ltr
+GAL,Gallon,gallons;gal;gals
+SET,Set,sets;kit;kits
+PKG,Package,packages;pkg;pkgs;pack;packs
+PCS,Pieces,pcs;pieces;piece;qty
+TON,Tonne,tonnes;ton;tons;mt
+ROL,Roll,rolls;rl;rls
