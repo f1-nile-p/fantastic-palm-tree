@@ -8,6 +8,7 @@ import {
   deleteUOM,
 } from '../api'
 import UploadZone from '../components/UploadZone'
+import ConfirmModal from '../components/ConfirmModal'
 import { TrashIcon } from '@heroicons/react/24/outline'
 
 const ITEMS_TEMPLATE_HEADERS = 'code,description,unit_of_measure,unit_price,category'
@@ -32,6 +33,7 @@ export default function MasterData() {
   const [uploadingUOMs, setUploadingUOMs] = useState(false)
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
+  const [confirmState, setConfirmState] = useState(null) // { message, onConfirm }
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -79,27 +81,44 @@ export default function MasterData() {
   }
 
   const handleDeleteItem = async (id) => {
-    if (!confirm('Delete this item?')) return
-    try {
-      await deleteItem(id)
-      setItems((prev) => prev.filter((i) => i.id !== id))
-    } catch {
-      setError('Failed to delete item')
-    }
+    setConfirmState({
+      message: 'Delete this item?',
+      onConfirm: async () => {
+        setConfirmState(null)
+        try {
+          await deleteItem(id)
+          setItems((prev) => prev.filter((i) => i.id !== id))
+        } catch {
+          setError('Failed to delete item')
+        }
+      },
+    })
   }
 
   const handleDeleteUOM = async (id) => {
-    if (!confirm('Delete this UOM?')) return
-    try {
-      await deleteUOM(id)
-      setUoms((prev) => prev.filter((u) => u.id !== id))
-    } catch {
-      setError('Failed to delete UOM')
-    }
+    setConfirmState({
+      message: 'Delete this UOM?',
+      onConfirm: async () => {
+        setConfirmState(null)
+        try {
+          await deleteUOM(id)
+          setUoms((prev) => prev.filter((u) => u.id !== id))
+        } catch {
+          setError('Failed to delete UOM')
+        }
+      },
+    })
   }
 
   return (
     <div className="space-y-6">
+      {confirmState && (
+        <ConfirmModal
+          message={confirmState.message}
+          onConfirm={confirmState.onConfirm}
+          onCancel={() => setConfirmState(null)}
+        />
+      )}
       <h1 className="text-2xl font-bold text-gray-900">Master Data</h1>
 
       {error && (
